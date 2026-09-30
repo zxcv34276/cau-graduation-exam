@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: cau-graduation-exam
+    runtime: static
+    buildCommand: echo "Static PWA - no build required"
+    staticPublishPath: .
+    headers:
+      - path: /service-worker.js
+        name: Cache-Control
+        value: no-cache
+      - path: /manifest.webmanifest
+        name: Cache-Control
+        value: no-cache
+      - path: /index.html
+        name: Cache-Control
+        value: no-cache
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
